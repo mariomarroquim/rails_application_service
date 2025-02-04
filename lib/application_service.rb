@@ -13,18 +13,24 @@ module ApplicationService
   # `call` instance method.
   #
   # Example usage:
-  #   class MyService < ApplicationService::Base
-  #     def initialize(param1, param2)
-  #       @param1 = param1
-  #       @param2 = param2
+  #   class Sum < ApplicationService::Base
+  #     attr_accessor :number_a, :number_b
+  #
+  #     validates :number_a, :number_b, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  #
+  #     def initialize(number_a, number_b)
+  #       super
+  #
+  #       self.number_a = number_a
+  #       self.number_b = number_b
   #     end
   #
   #     def call
-  #       # perform the service action
+  #       (number_a + number_b)
   #     end
   #   end
   #
-  #   result = MyService.call(arg1, arg2)
+  #   sum = Sum.call(1, 2) # 2
   #
   # The `call` method can accept any number of arguments,
   # which are passed to the initializer of the service object.

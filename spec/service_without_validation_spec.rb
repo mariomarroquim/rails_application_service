@@ -5,6 +5,7 @@ class SumWithoutValidation < ApplicationService::Base
 
   def initialize(number_a, number_b)
     super
+
     self.number_a = number_a
     self.number_b = number_b
   end
