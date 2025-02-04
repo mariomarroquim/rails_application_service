@@ -5,7 +5,7 @@ RSpec.describe ApplicationService do
     expect(ApplicationService::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "raises an error when attempting to instantiate the abstract class" do
+    expect { ApplicationService::Base.new }.to raise_error(NotImplementedError, "ApplicationService::Base is an abstract class and cannot be instantiated")
   end
 end
