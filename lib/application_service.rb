@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "application_service/version"
+require "active_model"
 
 # The ApplicationService module serves as a namespace for service objects.
 # Service objects encapsulate business logic and are typically used to
@@ -28,20 +29,26 @@ module ApplicationService
   # The `call` method can accept any number of arguments,
   # which are passed to the initializer of the service object.
   class Base
+    include ::ActiveModel::Validations
+
     # Initializes a new instance of the service object.
     #
     # @param args [Array] the arguments to be passed to the initializer of the service object
     # @raise [NotImplementedError] if an attempt is made to instantiate the abstract class directly
     def initialize(*_args)
-      raise NotImplementedError, "#{self.class} is an abstract class and cannot be instantiated" if instance_of?(Base)
+      raise NotImplementedError, "#{self.class} can not be instantiated" if instance_of?(Base)
     end
 
     # Initializes a new instance of the service object and invokes its `call` method.
     #
     # @param args [Array] the arguments to be passed to the initializer of the service object
-    # @return [Object] the result of the service object's `call` method
+    # @return [Object] the recently instantiated service object
     def self.call(*args)
-      new(*args).call
+      service = new(*args)
+
+      return false unless service.valid?
+
+      service.call
     end
 
     # Encapsulates the implementation to be executed by the service object.
