@@ -2,6 +2,7 @@
 
 class TestService < ApplicationService::Base
   def initialize(param1, param2)
+    super
     @param1 = param1
     @param2 = param2
   end
@@ -12,7 +13,7 @@ class TestService < ApplicationService::Base
 end
 
 RSpec.describe TestService do
-  it "returns the sum of the two parameters" do
+  it "returns the sum of the two number" do
     result = TestService.call(1, 2)
     expect(result).to eq(3)
   end
