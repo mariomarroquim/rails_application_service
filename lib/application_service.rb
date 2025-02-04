@@ -25,30 +25,26 @@ module ApplicationService
   #
   #   result = MyService.call(arg1, arg2)
   #
-  # The `call` method can accept any number of arguments and an optional block,
+  # The `call` method can accept any number of arguments,
   # which are passed to the initializer of the service object.
   class Base
     # Initializes a new instance of the service object.
     #
     # @param args [Array] the arguments to be passed to the initializer of the service object
-    # @param block [Proc] an optional block to be passed to the initializer of the service object
     # @raise [NotImplementedError] if an attempt is made to instantiate the abstract class directly
     def initialize(*_args)
       raise NotImplementedError, "#{self.class} is an abstract class and cannot be instantiated" if instance_of?(Base)
-
-      yield self if block_given?
     end
 
     # Initializes a new instance of the service object and invokes its `call` method.
     #
     # @param args [Array] the arguments to be passed to the initializer of the service object
-    # @param block [Proc] an optional block to be passed to the initializer of the service object
     # @return [Object] the result of the service object's `call` method
-    def self.call(*args, &block)
-      new(*args, &block).call
+    def self.call(*args)
+      new(*args).call
     end
 
-    # Abstract method that should be implemented in child classes.
+    # Encapsulates the implementation to be executed by the service object.
     #
     # @raise [NotImplementedError] if the method is not implemented in a child class
     def call

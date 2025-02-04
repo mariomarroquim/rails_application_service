@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TestService < ApplicationService::Base
+class Sum < ApplicationService::Base
   def initialize(param1, param2)
     super
     @param1 = param1
@@ -12,9 +12,9 @@ class TestService < ApplicationService::Base
   end
 end
 
-RSpec.describe TestService do
-  it "returns the sum of the two number" do
-    result = TestService.call(1, 2)
+RSpec.describe Sum do
+  it "returns the sum of two given numbers" do
+    result = Sum.call(1, 2)
     expect(result).to eq(3)
   end
 end
