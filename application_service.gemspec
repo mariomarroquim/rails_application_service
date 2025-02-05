@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description = "This Ruby gem adds service objects to Rails applications."
   spec.homepage = "https://github.com/mariomarroquim/application_service"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.1.0"
+  spec.required_ruby_version = ">= 3.1.6"
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/mariomarroquim/application_service"
@@ -35,5 +35,6 @@ Gem::Specification.new do |spec|
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
+  # spec.metadata["rubygems_mfa_required"] = "true"
   spec.metadata["rubygems_mfa_required"] = "true"
 end
