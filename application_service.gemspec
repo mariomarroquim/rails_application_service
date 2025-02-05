@@ -3,19 +3,19 @@
 require_relative "lib/application_service/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "application_service"
+  spec.name = "rails_application_service"
   spec.version = ApplicationService::VERSION
   spec.authors = ["Mário Marroquim"]
   spec.email = ["mariomarroquim@gmail.com"]
   spec.summary = "Service objects for Rails - the Rails way."
   spec.description = "This Ruby gem adds service objects to Rails applications."
-  spec.homepage = "https://github.com/mariomarroquim/application_service"
+  spec.homepage = "https://github.com/mariomarroquim/rails_application_service"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.1.6"
+  spec.required_ruby_version = ">= 2.0"
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/mariomarroquim/application_service"
-  spec.metadata["changelog_uri"] = "https://github.com/mariomarroquim/application_service/CHANGELOG.md"
+  # spec.metadata["source_code_uri"] = "https://github.com/mariomarroquim/rails_application_service"
+  spec.metadata["changelog_uri"] = "https://github.com/mariomarroquim/rails_application_service/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -31,10 +31,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency "activemodel"
+  spec.add_dependency "activemodel", ">= 4.2.5"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
-  # spec.metadata["rubygems_mfa_required"] = "true"
-  spec.metadata["rubygems_mfa_required"] = "true"
+  spec.metadata["rubygems_mfa_required"] = "false"
 end

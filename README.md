@@ -7,7 +7,7 @@ Service objects for Rails - the Rails way. This Ruby gem adds service objects to
 **1 - Add the gem to the Rails application's Gemfile by entering:**
 
 ```yaml
-gem "application_service", git: "https://github.com/mariomarroquim/application_service"
+gem "application_service", git: "https://github.com/mariomarroquim/rails_application_service"
 ```
 
 **2 - Install the gem into the Rails application's directory by running:**
@@ -68,7 +68,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mariomarroquim/application_service. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/mariomarroquim/application_service/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/mariomarroquim/rails_application_service. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/mariomarroquim/rails_application_service/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -76,7 +76,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the ApplicationService project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mariomarroquim/application_service/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the ApplicationService project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mariomarroquim/rails_application_service/blob/main/CODE_OF_CONDUCT.md).
 
 ## Support
 

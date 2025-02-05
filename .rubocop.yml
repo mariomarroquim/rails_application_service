@@ -1,6 +1,6 @@
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.1
+  TargetRubyVersion: 2.0
   SuggestExtensions: false
 
 Style/StringLiterals:
