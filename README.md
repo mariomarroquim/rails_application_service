@@ -4,33 +4,38 @@ Service objects for Rails - the Rails way. This Ruby gem adds service objects to
 
 ## Installation
 
-Add the gem to the application's Gemfile by entering:
+**1 - Add the gem to the Rails application's Gemfile by entering:**
 
 ```yaml
 gem "application_service", git: "https://github.com/mariomarroquim/application_service"
 ```
 
-Install the gem into the application's directory by running:
+**2 - Install the gem into the Rails application's directory by running:**
 
 ```bash
 bundle install
 ```
 
+**3 - Create a `app/services` subdirectory into the Rails application's directory by running:**
+```bash
+mkdir -p app/services
+```
+
 ## Usage
 
-The `ApplicationService::Base` class provides a standard interface for calling service objects. It defines a class method `call` that initializes a new instance of the service object and invokes its `call` instance method. The `call` method can accept any number of arguments, which are passed to the initializer of the service object.
+The `ApplicationService::Base` class provides a standard interface for calling service objects. It defines a class method `call` that initializes a new instance of the service object and invokes its `call` instance method. The `call` method can accept any number of arguments, which are passed to the initializer of the service object. You can define attributes and validations just like in Active Record, using the same syntax and conventions.
 
 ### Example of a basic service:
 
-Create an `app/services` subdirectory into the application's one with your service by running:
-```bash
-mkdir -p app/services && cat > app/services/my_service.rb <<EOF
+Create an `app/services` subdirectory into the Rails application's one with your service by running:
+```ruby
 class MyService < ApplicationService::Base
   def call
     # Perform the service action
   end
 end
-EOF
+
+my_service = MyService.call # nil
 ```
 
 ### Example of a more complete service:

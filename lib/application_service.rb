@@ -32,8 +32,10 @@ module ApplicationService
   #
   #   sum = Sum.call(1, 2) # 2
   #
-  # The `call` method can accept any number of arguments,
-  # which are passed to the initializer of the service object.
+  # The `call` method can accept any number of arguments, which are
+  # passed to the initializer of the service object. You can define
+  # attributes and validations just like in Active Record, using
+  # the same syntax and conventions.
   class Base
     include ::ActiveModel::Validations
 
