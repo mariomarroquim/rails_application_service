@@ -1,4 +1,4 @@
-# ApplicationService
+# Rails Application Service
 
 Service objects for Rails - the Rails way. This Ruby gem adds service objects to Rails applications.
 
