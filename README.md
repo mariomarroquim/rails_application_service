@@ -7,7 +7,7 @@ Service objects for Rails - the Rails way. This Ruby gem adds service objects to
 **1 - Add the gem to the Rails application's Gemfile by entering:**
 
 ```bash
-bundle add application_service
+bundle add rails_application_service
 ```
 
 **2 - Install the gem into the Rails application's directory by running:**
