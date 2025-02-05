@@ -1,4 +1,4 @@
-# ApplicationService
+# Rails Application Service
 
 Service objects for Rails - the Rails way. This Ruby gem adds service objects to Rails applications.
 
@@ -7,7 +7,7 @@ Service objects for Rails - the Rails way. This Ruby gem adds service objects to
 **1 - Add the gem to the Rails application's Gemfile by entering:**
 
 ```bash
-gem add application_service
+bundle add application_service
 ```
 
 **2 - Install the gem into the Rails application's directory by running:**
@@ -27,6 +27,8 @@ The `ApplicationService::Base` class provides a standard interface for calling s
 
 ### Example of a basic service:
 ```ruby
+require "application_service"
+
 class MyService < ApplicationService::Base
   def call
     # Perform the service action
@@ -38,6 +40,8 @@ my_service = MyService.call # nil
 
 ### Example of a more complete service:
 ```ruby
+require "application_service"
+
 class Sum < ApplicationService::Base
   attr_accessor :number_a, :number_b
 
