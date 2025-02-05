@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     rails_application_service (0.3.0)
-      activemodel (>= 4.2.5)
+      activemodel (>= 4.2)
 
 GEM
   remote: https://rubygems.org/
