@@ -27,6 +27,8 @@ The `ApplicationService::Base` class provides a standard interface for calling s
 
 ### Example of a basic service:
 ```ruby
+require "application_service"
+
 class MyService < ApplicationService::Base
   def call
     # Perform the service action
@@ -38,6 +40,8 @@ my_service = MyService.call # nil
 
 ### Example of a more complete service:
 ```ruby
+require "application_service"
+
 class Sum < ApplicationService::Base
   attr_accessor :number_a, :number_b
 
