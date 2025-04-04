@@ -23,7 +23,7 @@ mkdir -p app/services
 
 ## Usage
 
-The `ApplicationService::Base` class provides a standard interface for calling service objects. It defines a class method `call` that initializes a new instance of the service object and invokes its `call` instance method. The `call` method can accept any number of arguments, which are passed to the initializer of the service object. You can define attributes and validations just like in Active Record, using the same syntax and conventions.
+The `ApplicationService::Base` class provides a standard interface for calling service objects with robust type handling and validations. It leverages `ActiveModel::API` for initialization with keyword arguments, `ActiveModel::Attributes` for type casting, and `ActiveModel::Validations` for input validation.
 
 ### Example of a basic service:
 ```ruby
@@ -38,28 +38,57 @@ end
 my_service = MyService.call # nil
 ```
 
-### Example of a more complete service:
+### Example of a service:
 ```ruby
 require "application_service"
 
-class Sum < ApplicationService::Base
-  attr_accessor :number_a, :number_b
+class Sum < ::ApplicationService::Base
+  attribute :number_a, :integer
+  attribute :number_b, :integer
 
-  validates :number_a, :number_b, presence: true, numericality: { only_integer: true, greater_than: 0 }
-
-  def initialize(number_a, number_b)
-    super
-
-    self.number_a = number_a
-    self.number_b = number_b
-  end
+  validates :number_a, :number_b, 
+            presence: true,
+            numericality: { greater_than: 0 }
 
   def call
-    (number_a + number_b)
+    number_a + number_b
   end
 end
 
-sum = Sum.call(1, 2) # 2
+sum = ::Sum.call(number_a: 1, number_b: 2) # => 3
+```
+
+### Available attribute types
+
+The gem supports the following attribute types through `ActiveModel::Attributes`:
+
+- `:integer`
+- `:float`
+- `:decimal`
+- `:string`
+- `:boolean`
+- `:date`
+- `:time`
+- `:datetime`
+- And other custom types defined in `ActiveModel::Type`
+
+### Example of using the service in a controller:
+```ruby
+class SumsController < ::ApplicationController
+  def create
+    input = {
+      number_a: params[:first_number],
+      number_b: params[:second_number]
+    }
+
+    case ::Sum.call(**input)
+    in ::Integer => result
+      render json: { sum: result }, status: :ok
+    else
+      head :unprocessable_entity
+    end
+  end
+end
 ```
 
 ## Development

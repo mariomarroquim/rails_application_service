@@ -8,51 +8,57 @@ require "active_model"
 # perform a single action or a series of related actions.
 module ApplicationService
   # The Base class within the ApplicationService module provides a standard
-  # interface for calling service objects. It defines a class method `call`
-  # that initializes a new instance of the service object and invokes its
-  # `call` instance method.
+  # interface for calling service objects with robust type handling and validations.
+  # It leverages ActiveModel::API for initialization with keyword arguments,
+  # ActiveModel::Attributes for type casting, and ActiveModel::Validations for
+  # input validation.
   #
   # Example usage:
   #   class Sum < ApplicationService::Base
-  #     attr_accessor :number_a, :number_b
+  #     attribute :number_a, :integer
+  #     attribute :number_b, :integer
   #
   #     validates :number_a, :number_b, presence: true, numericality: { only_integer: true, greater_than: 0 }
   #
-  #     def initialize(number_a, number_b)
-  #       super
-  #
-  #       self.number_a = number_a
-  #       self.number_b = number_b
-  #     end
-  #
   #     def call
-  #       (number_a + number_b)
+  #       number_a + number_b
   #     end
   #   end
   #
-  #   sum = Sum.call(1, 2) # 2
+  #   sum = Sum.call(number_a: 1, number_b: 2) # => 3
   #
-  # The `call` method can accept any number of arguments, which are
-  # passed to the initializer of the service object. You can define
-  # attributes and validations just like in Active Record, using
-  # the same syntax and conventions.
+  # Available attribute types include:
+  # - :integer
+  # - :float
+  # - :decimal
+  # - :string
+  # - :boolean
+  # - :date
+  # - :time
+  # - :datetime
+  # - and other custom types defined in ActiveModel::Type
   class Base
+    include ::ActiveModel::API
+    include ::ActiveModel::Attributes
     include ::ActiveModel::Validations
 
     # Initializes a new instance of the service object.
     #
-    # @param args [Array] the arguments to be passed to the initializer of the service object
-    # @raise [NotImplementedError] if an attempt is made to instantiate the abstract class directly
-    def initialize(*_args)
-      raise NotImplementedError, "#{self.class} can not be instantiated" if instance_of?(Base)
+    # @param kwargs [Hash] the attributes to be passed to the service object
+    # @raise [NotImplementedError] if an attempt is made to instantiate the Base class directly
+    def initialize(**kwargs)
+      super
+
+      raise ::NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly" if instance_of?(Base)
     end
 
     # Initializes a new instance of the service object and invokes its `call` method.
     #
-    # @param args [Array] the arguments to be passed to the initializer of the service object
-    # @return [Object] the recently instantiated service object
-    def self.call(*args)
-      service = new(*args)
+    # @param kwargs [Hash] the attributes to be passed to the service object
+    # @return [Object] the result of the service object's call method
+    # @return [false] if the service object is invalid
+    def self.call(**kwargs)
+      service = new(**kwargs)
 
       return false unless service.valid?
 
@@ -63,7 +69,7 @@ module ApplicationService
     #
     # @raise [NotImplementedError] if the method is not implemented in a child class
     def call
-      raise NotImplementedError, "The `call` method must be implemented in #{self.class}"
+      raise ::NotImplementedError, "The `call` method must be implemented in #{self.class.name}"
     end
   end
 end
