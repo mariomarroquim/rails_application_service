@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-class SumWithValidation < ::ApplicationService::Base
+class SumWithValidation < ApplicationService::Base
   attribute :number_a, :integer
   attribute :number_b, :integer
 
   validates :number_a,
-            :number_b, 
+            :number_b,
             presence: true,
-            numericality: { 
+            numericality: {
               greater_than: 0
             }
 
