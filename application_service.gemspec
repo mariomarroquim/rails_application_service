@@ -12,9 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/mariomarroquim/rails_application_service"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.2"
-  # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
   spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = "https://github.com/mariomarroquim/rails_application_service"
   spec.metadata["changelog_uri"] = "https://github.com/mariomarroquim/rails_application_service/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.

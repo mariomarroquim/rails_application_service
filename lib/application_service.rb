@@ -18,7 +18,7 @@ module ApplicationService
   #     attribute :number_a, :integer
   #     attribute :number_b, :integer
   #
-  #     validates :number_a, :number_b, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  #     validates :number_a, :number_b, presence: true, numericality: { greater_than: 0 }
   #
   #     def call
   #       number_a + number_b
@@ -28,15 +28,14 @@ module ApplicationService
   #   sum = Sum.call(number_a: 1, number_b: 2) # => 3
   #
   # Available attribute types include:
-  # - :integer
-  # - :float
-  # - :decimal
-  # - :string
   # - :boolean
   # - :date
-  # - :time
   # - :datetime
-  # - and other custom types defined in ActiveModel::Type
+  # - :decimal
+  # - :float
+  # - :integer
+  # - :string
+  # - :time
   class Base
     include ::ActiveModel::API
     include ::ActiveModel::Attributes
@@ -51,8 +50,7 @@ module ApplicationService
 
       return unless instance_of?(Base)
 
-      raise ::NotImplementedError,
-            "#{self.class.name} is an abstract class and cannot be instantiated directly"
+      raise ::NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
     end
 
     # Initializes a new instance of the service object and invokes its `call` method.
