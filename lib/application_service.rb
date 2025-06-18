@@ -14,6 +14,7 @@ module ApplicationService
   # input validation.
   #
   # Example usage:
+  #
   #   class Sum < ApplicationService::Base
   #     attribute :number_a, :integer
   #     attribute :number_b, :integer
@@ -27,7 +28,9 @@ module ApplicationService
   #
   #   sum = Sum.call(number_a: 1, number_b: 2) # => 3
   #
-  # Available attribute types include:
+  # This gem supports the following attribute types through ActiveModel::Attributes and
+  # other custom types defined in ActiveModel::Type:
+  #
   # - :boolean
   # - :date
   # - :datetime

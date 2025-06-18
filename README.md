@@ -16,7 +16,7 @@ bundle add rails_application_service
 bundle install
 ```
 
-**3 - Create a `app/services` subdirectory into the Rails application's directory by running:**
+**3 - Create an `app/services` subdirectory in the Rails application's directory by running:**
 ```bash
 mkdir -p app/services
 ```
@@ -42,54 +42,32 @@ my_service = MyService.call # nil
 ```ruby
 require "application_service"
 
-class Sum < ::ApplicationService::Base
+class Sum < ApplicationService::Base
   attribute :number_a, :integer
   attribute :number_b, :integer
 
-  validates :number_a, :number_b, 
-            presence: true,
-            numericality: { greater_than: 0 }
+  validates :number_a, :number_b, presence: true, numericality: { greater_than: 0 }
 
   def call
     number_a + number_b
   end
 end
 
-sum = ::Sum.call(number_a: 1, number_b: 2) # => 3
+sum = Sum.call(number_a: 1, number_b: 2) # => 3
 ```
 
 ### Available attribute types
 
-The gem supports the following attribute types through `ActiveModel::Attributes`:
+This gem supports the following attribute types through `ActiveModel::Attributes` and other custom types defined in `ActiveModel::Type`:
 
-- `:integer`
-- `:float`
-- `:decimal`
-- `:string`
 - `:boolean`
 - `:date`
-- `:time`
 - `:datetime`
-- And other custom types defined in `ActiveModel::Type`
-
-### Example of using the service in a controller:
-```ruby
-class SumsController < ::ApplicationController
-  def create
-    input = {
-      number_a: params[:first_number],
-      number_b: params[:second_number]
-    }
-
-    case ::Sum.call(**input)
-    in ::Integer => result
-      render json: { sum: result }, status: :ok
-    else
-      head :unprocessable_entity
-    end
-  end
-end
-```
+- `:decimal`
+- `:float`
+- `:integer`
+- `:string`
+- `:time`
 
 ## Development
 
@@ -107,7 +85,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the ApplicationService project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mariomarroquim/rails_application_service/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the ApplicationService project's codebases, issue trackers, chat rooms, and mailing lists is expected to follow the [code of conduct](https://github.com/mariomarroquim/rails_application_service/blob/main/CODE_OF_CONDUCT.md).
 
 ## Support
 

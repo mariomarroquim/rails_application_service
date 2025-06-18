@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Sum < ApplicationService::Base
+class SumService < ApplicationService::Base
   attribute :number_a, :integer
   attribute :number_b, :integer
 
@@ -11,34 +11,34 @@ class Sum < ApplicationService::Base
   end
 end
 
-RSpec.describe Sum do
+RSpec.describe SumService do
   it "calculates the sum of two given numbers" do
-    sum = Sum.call(number_a: 1, number_b: 2)
+    sum = SumService.call(number_a: 1, number_b: 2)
     expect(sum).to eq(3)
   end
 
   it "converts string numbers to integers" do
-    sum = Sum.call(number_a: 1, number_b: "2")
+    sum = SumService.call(number_a: 1, number_b: "2")
     expect(sum).to eq(3)
   end
 
   it "handles type conversion automatically" do
-    sum = Sum.call(number_a: 1.5, number_b: "2.8")
+    sum = SumService.call(number_a: 1.5, number_b: "2.8")
     expect(sum).to eq(3)
   end
 
   it "fails if no number is given" do
-    sum = Sum.call(number_a: 1, number_b: nil)
+    sum = SumService.call(number_a: 1, number_b: nil)
     expect(sum).to be_falsey
   end
 
   it "fails if zero is given" do
-    sum = Sum.call(number_a: 1, number_b: 0)
+    sum = SumService.call(number_a: 1, number_b: 0)
     expect(sum).to be_falsey
   end
 
   it "fails if a negative number is given" do
-    sum = Sum.call(number_a: 1, number_b: -2)
+    sum = SumService.call(number_a: 1, number_b: -2)
     expect(sum).to be_falsey
   end
 end
