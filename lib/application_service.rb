@@ -29,7 +29,7 @@ module ApplicationService
   #   sum = Sum.call(number_a: 1, number_b: 2) # => 3
   #
   # This gem supports the following attribute types through ActiveModel::Attributes and
-  # other custom types defined in ActiveModel::Type:
+  # custom types defined in ActiveModel::Type:
   #
   # - :boolean
   # - :date
