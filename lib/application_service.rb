@@ -51,9 +51,9 @@ module ApplicationService
     def initialize(**kwargs)
       super
 
-      if instance_of?(Base)
-        raise ::NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
-      end
+      return unless instance_of?(Base)
+
+      raise ::NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
     end
 
     # Instantiates a new service object and invokes its `call` method.
