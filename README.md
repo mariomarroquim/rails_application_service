@@ -1,22 +1,23 @@
 # Rails Application Service
 
-Service objects for Rails - the Rails way. This Ruby gem adds service objects to Rails applications.
+Service objects for Rails, the Rails way. This Ruby gem adds service objects to your Rails applications.
 
 ## Installation
 
-**1 - Add the gem to the Rails application's Gemfile by entering:**
+**1 - Add the gem to your Rails application's Gemfile:**
 
 ```bash
 bundle add rails_application_service
 ```
 
-**2 - Install the gem into the Rails application's directory by running:**
+**2 - Install the gem by running:**
 
 ```bash
 bundle install
 ```
 
-**3 - Create an `app/services` subdirectory in the Rails application's directory by running:**
+**3 - Create an `app/services` directory in your Rails application:**
+
 ```bash
 mkdir -p app/services
 ```
@@ -25,7 +26,8 @@ mkdir -p app/services
 
 The `ApplicationService::Base` class provides a standard interface for calling service objects with robust type handling and validations. It leverages `ActiveModel::API` for initialization with keyword arguments, `ActiveModel::Attributes` for type casting, and `ActiveModel::Validations` for input validation.
 
-### Example of a basic service:
+### Basic service example
+
 ```ruby
 require "application_service"
 
@@ -38,7 +40,8 @@ end
 my_service = MyService.call # nil
 ```
 
-### Example of a service:
+### Example with attributes and validations
+
 ```ruby
 require "application_service"
 
@@ -56,9 +59,9 @@ end
 sum = Sum.call(number_a: 1, number_b: 2) # => 3
 ```
 
-### Available attribute types
+### Supported attribute types
 
-This gem supports the following attribute types through `ActiveModel::Attributes` and other custom types defined in `ActiveModel::Type`:
+This gem supports the following attribute types through `ActiveModel::Attributes` and custom types defined in `ActiveModel::Type`:
 
 - `:boolean`
 - `:date`
@@ -71,9 +74,9 @@ This gem supports the following attribute types through `ActiveModel::Attributes
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to execute the tests. You can also run `bin/console` for an interactive prompt to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, then run `bundle exec rake release`. This will create a git tag for the version, push git commits and the tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 

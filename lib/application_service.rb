@@ -46,24 +46,23 @@ module ApplicationService
 
     # Initializes a new instance of the service object.
     #
-    # @param kwargs [Hash] the attributes to be passed to the service object
-    # @raise [NotImplementedError] if an attempt is made to instantiate the Base class directly
+    # @param kwargs [Hash] The attributes to be passed to the service object.
+    # @raise [NotImplementedError] if an attempt is made to instantiate the Base class directly.
     def initialize(**kwargs)
       super
 
-      return unless instance_of?(Base)
-
-      raise ::NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
+      if instance_of?(Base)
+        raise ::NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
+      end
     end
 
-    # Initializes a new instance of the service object and invokes its `call` method.
+    # Instantiates a new service object and invokes its `call` method.
     #
-    # @param kwargs [Hash] the attributes to be passed to the service object
-    # @return [Object] the result of the service object's call method
-    # @return [false] if the service object is invalid
+    # @param kwargs [Hash] The attributes to be passed to the service object.
+    # @return [Object] The result of the service object's call method.
+    # @return [false] If the service object is invalid.
     def self.call(**kwargs)
       service = new(**kwargs)
-
       return false unless service.valid?
 
       service.call
@@ -71,7 +70,7 @@ module ApplicationService
 
     # Encapsulates the implementation to be executed by the service object.
     #
-    # @raise [NotImplementedError] if the method is not implemented in a child class
+    # @raise [NotImplementedError] if the method is not implemented in a child class.
     def call
       raise ::NotImplementedError, "The `call` method must be implemented in #{self.class.name}"
     end

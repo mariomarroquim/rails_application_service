@@ -1,22 +1,16 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project are documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - yyyy-mm-dd
-
-Here we write upgrading notes for brands. It's a team effort to make them as
-straightforward as possible.
+## [0.6.0] - 2025-06-16
 
 ### Added
-- [PROJECTNAME-XXXX](http://tickets.projectname.com/browse/PROJECTNAME-XXXX)
-  MINOR Ticket title goes here.
-- [PROJECTNAME-YYYY](http://tickets.projectname.com/browse/PROJECTNAME-YYYY)
-  PATCH Ticket title goes here.
 
 ### Changed
+- Enhanced the changelog
 
 ### Removed
 
@@ -27,10 +21,10 @@ straightforward as possible.
 ### Added
 
 ### Changed
-- Code documentation and Readme were enhanced
-- Test specs were refactored and simplified
-- Rubocop offenses were fixed
-- Dependencies were updated
+- Improved code documentation and README
+- Refactored and simplified test specs
+- Fixed Rubocop offenses
+- Updated dependencies
 
 ### Removed
 
@@ -39,17 +33,17 @@ straightforward as possible.
 ## [0.4.0] - 2025-06-16
 
 ### Added
-- Support for `ActiveModel::API` and `ActiveModel::Attributes` was added
-- Type casting through `ActiveModel::Attributes` was added
-- Validation through `ActiveModel::Validations` was added
+- Added support for `ActiveModel::API` and `ActiveModel::Attributes`
+- Enabled type casting through `ActiveModel::Attributes`
+- Added validation via `ActiveModel::Validations`
 
 ### Changed
-- Service initialization now uses keyword arguments exclusively
+- Service initialization now exclusively uses keyword arguments
 - Improved error messages and documentation
 - Enhanced example code in docstrings
 
 ### Removed
-- Support for positional arguments in the `call` method
+- Removed support for positional arguments in the `call` method
 
 ### Breaking Changes
 - Services must now use keyword arguments instead of positional arguments
@@ -60,7 +54,7 @@ straightforward as possible.
 ### Added
 
 ### Changed
-- Source code and tests were refactored
+- Refactored source code and tests
 
 ### Removed
 
@@ -71,7 +65,7 @@ straightforward as possible.
 ### Added
 
 ### Changed
-- Source code and tests were refactored
+- Refactored source code and tests
 
 ### Removed
 
