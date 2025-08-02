@@ -46,8 +46,7 @@ my_service = MyService.call # nil
 require "application_service"
 
 class Sum < ApplicationService::Base
-  attribute :number_a, :integer
-  attribute :number_b, :integer
+  attr_accessor :number_a, :number_b
 
   validates :number_a, :number_b, presence: true, numericality: { greater_than: 0 }
 
@@ -58,19 +57,6 @@ end
 
 sum = Sum.call(number_a: 1, number_b: 2) # => 3
 ```
-
-### Supported attribute types
-
-This gem supports the following attribute types through `ActiveModel::Attributes` and custom types defined in `ActiveModel::Type`:
-
-- `:boolean`
-- `:date`
-- `:datetime`
-- `:decimal`
-- `:float`
-- `:integer`
-- `:string`
-- `:time`
 
 ## Development
 
