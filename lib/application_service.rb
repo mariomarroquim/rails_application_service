@@ -8,16 +8,13 @@ require "active_model"
 # perform a single action or a series of related actions.
 module ApplicationService
   # The Base class within the ApplicationService module provides a standard
-  # interface for calling service objects with robust type handling and validations.
-  # It leverages ActiveModel::API for initialization with keyword arguments,
-  # ActiveModel::Attributes for type casting, and ActiveModel::Validations for
-  # input validation.
+  # interface for calling service objects. It leverages ActiveModel for
+  # initialization with keyword arguments and input validation.
   #
   # Example usage:
   #
   #   class Sum < ApplicationService::Base
-  #     attribute :number_a, :integer
-  #     attribute :number_b, :integer
+  #     attr_accessor :number_a, :number_b
   #
   #     validates :number_a, :number_b, presence: true, numericality: { greater_than: 0 }
   #
@@ -27,22 +24,8 @@ module ApplicationService
   #   end
   #
   #   sum = Sum.call(number_a: 1, number_b: 2) # => 3
-  #
-  # This gem supports the following attribute types through ActiveModel::Attributes and
-  # custom types defined in ActiveModel::Type:
-  #
-  # - :boolean
-  # - :date
-  # - :datetime
-  # - :decimal
-  # - :float
-  # - :integer
-  # - :string
-  # - :time
   class Base
-    include ::ActiveModel::API
-    include ::ActiveModel::Attributes
-    include ::ActiveModel::Validations
+    include ::ActiveModel::Model
 
     # Initializes a new instance of the service object.
     #

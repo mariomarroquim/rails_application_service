@@ -24,7 +24,7 @@ mkdir -p app/services
 
 ## Usage
 
-The `ApplicationService::Base` class provides a standard interface for calling service objects with robust type handling and validations. It leverages `ActiveModel::API` for initialization with keyword arguments, `ActiveModel::Attributes` for type casting, and `ActiveModel::Validations` for input validation.
+The `ApplicationService::Base` class provides a standard interface for calling service objects. It leverages `ActiveModel` for initialization with keyword arguments and input validation.
 
 ### Basic service example
 

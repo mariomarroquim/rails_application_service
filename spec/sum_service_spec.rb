@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class SumService < ApplicationService::Base
-  attribute :number_a, :integer
-  attribute :number_b, :integer
+  attr_accessor :number_a, :number_b
 
   validates :number_a, :number_b, presence: true, numericality: { greater_than: 0 }
 
@@ -14,16 +13,6 @@ end
 RSpec.describe SumService do
   it "calculates the sum of two given numbers" do
     sum = SumService.call(number_a: 1, number_b: 2)
-    expect(sum).to eq(3)
-  end
-
-  it "converts string numbers to integers" do
-    sum = SumService.call(number_a: 1, number_b: "2")
-    expect(sum).to eq(3)
-  end
-
-  it "handles type conversion automatically" do
-    sum = SumService.call(number_a: 1.5, number_b: "2.8")
     expect(sum).to eq(3)
   end
 
