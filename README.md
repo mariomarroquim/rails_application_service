@@ -1,6 +1,6 @@
 # Rails Application Service
 
-This Ruby gem adds service classes (for example, use cases, features, or commands) to Ruby on Rails web applications.
+This Ruby gem adds service classes (e.g., use cases, features, or commands) to Ruby on Rails web applications.
 
 ## Installation
 
