@@ -1,6 +1,6 @@
 # Rails Application Service
 
-Service objects for Rails, the Rails way. This Ruby gem adds service objects to your Rails applications.
+This Ruby gem adds service classes (for example, use cases, features, or commands) to Ruby on Rails web applications.
 
 ## Installation
 
@@ -24,7 +24,7 @@ mkdir -p app/services
 
 ## Usage
 
-The `ApplicationService::Base` class provides a standard interface for calling service objects. It leverages `ActiveModel` for initialization with keyword arguments and input validation.
+The `ApplicationService::Base` class provides a standard interface for calling services. It leverages `ActiveModel` for initialization with keyword arguments and input validation.
 
 ### Basic service example
 
@@ -54,23 +54,19 @@ end
 sum = Sum.call(number_a: 1, number_b: 2) # => 3
 ```
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to execute the tests. You can also run `bin/console` for an interactive prompt to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, then run `bundle exec rake release`. This will create a git tag for the version, push git commits and the tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mariomarroquim/rails_application_service. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/mariomarroquim/rails_application_service/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub: [mariomarroquim/rails_application_service](https://github.com/mariomarroquim/rails_application_service). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to follow the [Code of Conduct](https://github.com/mariomarroquim/rails_application_service/blob/main/CODE_OF_CONDUCT.md).
+
+## Development
+
+After checking out the repository, run `bin/setup` to install dependencies. Then run `rake spec` to execute the test suite. You can also run `bin/console` to open an interactive prompt for experimentation.
+
+To install this gem on your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, then run `bundle exec rake release`. This command creates a git tag for the version, pushes the commits and tag, and publishes the `.gem` file to [RubyGems.org](https://rubygems.org).
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the ApplicationService project's codebases, issue trackers, chat rooms, and mailing lists is expected to follow the [code of conduct](https://github.com/mariomarroquim/rails_application_service/blob/main/CODE_OF_CONDUCT.md).
+This gem is available as open source under the terms of the [MIT License](https://github.com/mariomarroquim/rails_application_service/blob/main/LICENSE.txt).
 
 ## Support
 

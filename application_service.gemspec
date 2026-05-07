@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version = ApplicationService::VERSION
   spec.authors = ["Mário Marroquim"]
   spec.email = ["mariomarroquim@gmail.com"]
-  spec.summary = "Service objects for Rails - the Rails way."
-  spec.description = "This Ruby gem adds service objects to Rails applications."
+  spec.summary = "Add service classes to Ruby on Rails web applications."
+  spec.description = "This Ruby gem adds service classes (e.g., use cases, features, or commands) to Rails apps."
   spec.homepage = "https://github.com/mariomarroquim/rails_application_service"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.2"
