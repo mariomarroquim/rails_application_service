@@ -5,7 +5,7 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.7.0] - 2026-11-21
 
 ### Added
 - AGENTS.md with guidance for coding agents (CLAUDE.md links to it)
@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI workflow
 
 ### Breaking Changes
+- Services now raise `ApplicationService::NotImplementedError` (a `StandardError`) instead of Ruby's built-in `NotImplementedError` (a `ScriptError`) when `Base` is instantiated directly or `call` is not implemented, so a bare `rescue` now catches it
 
 ## [0.6.3] - 2026-05-07
 
