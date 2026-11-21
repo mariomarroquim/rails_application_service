@@ -54,10 +54,6 @@ end
 sum = Sum.call(number_a: 1, number_b: 2) # => 3
 ```
 
-## License
-
-This gem is available as open source under the terms of the [MIT License](https://github.com/mariomarroquim/rails_application_service/blob/main/LICENSE.txt).
-
 ## Support
 
 You can contact me at mariomarroquim@gmail.com.
