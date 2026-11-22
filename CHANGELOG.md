@@ -5,38 +5,7 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
-### Added
-- AGENTS.md with guidance for coding agents (CLAUDE.md links to it)
-
-### Changed
-- Updated Ruby version and gems
-- Simplified the Readme
-
-### Fixed
-- Changelog URI in the gem metadata
-- Development files (including the CLAUDE.md symlink) are no longer packaged in the gem
-
-### Removed
-- GitHub Actions CI workflow
-
-### Breaking Changes
-
-## [0.6.3] - 2026-05-07
-
-### Added
-
-### Changed
-- Updated Ruby version and gems
-- Improved the gem summary and description
-- Improved the Readme
-
-### Removed
-
-### Breaking Changes
-
-## [0.6.2] - 2025-08-02
+## [0.6.2] - in progress
 
 ### Added
 
