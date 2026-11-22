@@ -7,12 +7,6 @@ require "active_model"
 # Service objects encapsulate business logic and are typically used to
 # perform a single action or a series of related actions.
 module ApplicationService
-  # Raised when the abstract Base class is instantiated directly, or when a
-  # subclass does not implement `call`. Unlike Ruby's built-in
-  # NotImplementedError (a ScriptError), it inherits from StandardError, so a
-  # bare `rescue` catches it.
-  class NotImplementedError < ::StandardError; end
-
   # The Base class within the ApplicationService module provides a standard
   # interface for calling service objects. It leverages ActiveModel for
   # initialization with keyword arguments and input validation.
@@ -36,14 +30,13 @@ module ApplicationService
     # Initializes a new instance of the service object.
     #
     # @param kwargs [Hash] The attributes to be passed to the service object.
-    # @raise [ApplicationService::NotImplementedError] if an attempt is made to instantiate the Base class directly.
+    # @raise [NotImplementedError] if an attempt is made to instantiate the Base class directly.
     def initialize(**kwargs)
       super
 
       return unless instance_of?(Base)
 
-      raise ApplicationService::NotImplementedError,
-            "#{self.class.name} is an abstract class and cannot be instantiated directly"
+      raise ::NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
     end
 
     # Instantiates a new service object and invokes its `call` method.
@@ -60,9 +53,9 @@ module ApplicationService
 
     # Encapsulates the implementation to be executed by the service object.
     #
-    # @raise [ApplicationService::NotImplementedError] if the method is not implemented in a child class.
+    # @raise [NotImplementedError] if the method is not implemented in a child class.
     def call
-      raise ApplicationService::NotImplementedError, "The `call` method must be implemented in #{self.class.name}"
+      raise ::NotImplementedError, "The `call` method must be implemented in #{self.class.name}"
     end
   end
 end

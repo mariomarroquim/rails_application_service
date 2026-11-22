@@ -20,7 +20,7 @@ This is a tiny gem. All the behavior lives in `ApplicationService::Base` in `lib
 - **Naming:** the gem is published as `rails_application_service`, but the module is `ApplicationService`, the require path is `application_service`, and the gemspec is `application_service.gemspec`.
 - **ActiveModel only:** `Base` includes `ActiveModel::Model`, so subclasses get keyword-argument initialization (`attr_accessor` attributes) and `validates`. The only runtime dependency is `activemodel >= 4.2`. The gem does not depend on Rails itself.
 - **The `call` contract:** the class method `Base.call(**kwargs)` builds an instance, returns `false` if `valid?` fails, and otherwise returns the result of the instance's `call`. The service instance (and its `errors`) is thrown away, so callers get only the return value or `false`.
-- **Abstract base:** creating a `Base` directly raises `ApplicationService::NotImplementedError` (a `StandardError`, unlike Ruby's built-in `NotImplementedError`), and so does a subclass that does not override `#call`.
+- **Abstract base:** creating a `Base` directly raises `NotImplementedError`, and so does a subclass that does not override `#call`.
 - **Specs as subclasses:** specs define small concrete subclasses inline (for example, `SumService` in `spec/sum_service_spec.rb`) to exercise the base class.
 
 ## Constraints
