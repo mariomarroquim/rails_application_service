@@ -4,6 +4,8 @@ This Ruby gem adds service classes (e.g., use cases, features, or commands) to R
 
 ## Instructions
 
+Requires Ruby 4.0 or later and Rails (ActiveModel) 8.0 or later.
+
 **1 - Add the gem to your Rails application's Gemfile:**
 
 ```bash

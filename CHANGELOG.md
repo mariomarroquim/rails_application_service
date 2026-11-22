@@ -11,10 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Simplified docs
+- Fixed the changelog link in the gem metadata
 
 ### Removed
 
 ### Breaking Changes
+- Ruby 4.0 or later is now required (previously Ruby 2.2)
+- ActiveModel 8.0 or later is now required (previously ActiveModel 4.2)
 
 ## [0.6.1] - 2025-06-18
 

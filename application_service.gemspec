@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description = "This Ruby gem adds service classes (e.g., use cases, features, or commands) to Rails apps."
   spec.homepage = "https://github.com/mariomarroquim/rails_application_service"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.2"
+  spec.required_ruby_version = ">= 4.0"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["changelog_uri"] = "https://github.com/mariomarroquim/rails_application_service/blob/main/CHANGELOG.md"
 
@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency "activemodel", ">= 4.2"
+  spec.add_dependency "activemodel", ">= 8.0"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

@@ -40,12 +40,12 @@ module ApplicationService
     end
 
     # Instantiates a new service object and invokes its `call` method.
+    # Keyword arguments are forwarded to `new` as the service object's attributes.
     #
-    # @param kwargs [Hash] The attributes to be passed to the service object.
     # @return [Object] The result of the service object's call method.
     # @return [false] If the service object is invalid.
-    def self.call(**kwargs)
-      service = new(**kwargs)
+    def self.call(**)
+      service = new(**)
       return false unless service.valid?
 
       service.call
