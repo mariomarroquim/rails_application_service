@@ -31,7 +31,7 @@ This is a tiny gem. All the behavior lives in `ApplicationService::Base` in `lib
 ### Constraints
 
 - **Style:** use double-quoted strings and `# frozen_string_literal: true` in every Ruby file. RuboCop enforces both, with `NewCops: enable`.
-- **Packaging:** gem contents come from `git ls-files` (minus `bin/`, `spec/`, `.git*`, `.github`, `Gemfile*` and the gemspec), so a new file under `lib/` must be committed before it ships.
+- **Packaging:** gem contents come from `git ls-files` (minus dotfiles, `bin/`, `spec/`, `Gemfile*`, `Rakefile`, `AGENTS.md`, `CLAUDE.md`, `CODE_OF_CONDUCT.md` and the gemspec), so a new file under `lib/` must be committed before it ships.
 - **Changes:** record user-facing changes in `CHANGELOG.md`. Type signatures live in `sig/application_service.rbs`.
 
 ## Conventions
