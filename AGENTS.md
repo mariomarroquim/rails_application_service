@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 - `bin/setup`: install dependencies
-- `bundle exec rake`: default task, runs specs and then RuboCop
+- `bundle exec rake`: default task, runs specs and then RuboCop (this is what CI runs)
 - `bundle exec rake spec` / `bundle exec rspec`: run the test suite
 - `bundle exec rspec spec/sum_service_spec.rb:15`: run a single example by file and line
 - `bundle exec rspec --only-failures`: rerun failures (status is kept in `.rspec_status`)
