@@ -1,21 +1,22 @@
 # Rails Application Service
 
-Rails Application Service is a Ruby gem adds service classes to Ruby on Rails web applications.
+Rails Application Service is a Ruby gem that adds service classes to Ruby on Rails web applications.
 
 ## Project details
 
-This Ruby gem adds service classes (e.g., use cases, features, or commands) to Ruby on Rails web applications.
+This is a Ruby gem that adds service classes (e.g., use cases, features, or commands) to Ruby on Rails web applications.
 
 ### Commands
 
-- `bin/setup`: install dependencies
-- `bundle exec rake`: default task, runs specs and then RuboCop
-- `bundle exec rspec`: run the test suite
-- `bundle exec rspec spec/sum_service_spec.rb:15`: run a single example by file and line
-- `bundle exec rspec --only-failures`: rerun failures (status is kept in `.rspec_status`)
-- `bundle exec rubocop` (`-a` to autocorrect): lint
-- `bin/console`: IRB with the gem loaded
-- `bundle exec rake install` / `bundle exec rake release`: install locally / tag, push and publish to RubyGems (bump `lib/application_service/version.rb` first)
+- `bin/setup`: install dependencies.
+- `bundle exec rake`: default task, runs specs and then RuboCop.
+- `bundle exec rspec`: run the test suite.
+- `bundle exec rspec spec/sum_service_spec.rb:15`: run a single example by file and line.
+- `bundle exec rspec --only-failures`: rerun failures (status is kept in `.rspec_status`).
+- `bundle exec rubocop` (`-a` to autocorrect): lint.
+- `bin/console`: IRB with the gem loaded.
+- `bundle exec rake install`: install locally.
+- `bundle exec rake release`: tag, push and publish to RubyGems (bump `lib/application_service/version.rb` first).
 
 ### Architecture
 
@@ -29,7 +30,6 @@ This is a tiny gem. All the behavior lives in `ApplicationService::Base` in `lib
 
 ### Constraints
 
-- **Old Ruby support:** the gemspec declares `required_ruby_version >= 2.2`, and RuboCop targets Ruby 2.2 (`TargetRubyVersion: 2.2`). Library code must avoid newer syntax and APIs. The dev Ruby in `.ruby-version` and the CI Ruby in `.github/workflows/main.yml` are much newer.
 - **Style:** use double-quoted strings and `# frozen_string_literal: true` in every Ruby file. RuboCop enforces both, with `NewCops: enable`.
 - **Packaging:** gem contents come from `git ls-files` (minus `bin/`, `spec/`, `.git*`, `.github`, `Gemfile*` and the gemspec), so a new file under `lib/` must be committed before it ships.
 - **Changes:** record user-facing changes in `CHANGELOG.md`. Type signatures live in `sig/application_service.rbs`.

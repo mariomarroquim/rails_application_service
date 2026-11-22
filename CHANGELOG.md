@@ -45,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Improved code documentation and README
 - Refactored and simplified test specs
-- Fixed Rubocop offenses
+- Fixed RuboCop offenses
 - Updated dependencies
 
 ### Removed
