@@ -1,11 +1,15 @@
 # Rails Application Service
 
-Rails Application Service is a Ruby gem adds service classes (e.g., use cases, features, or commands) to Ruby on Rails web applications.
+Rails Application Service is a Ruby gem adds service classes to Ruby on Rails web applications.
 
-## Commands
+## Project details
+
+This Ruby gem adds service classes (e.g., use cases, features, or commands) to Ruby on Rails web applications.
+
+### Commands
 
 - `bin/setup`: install dependencies
-- `bundle exec rake`: default task, runs specs and then RuboCop (this is what CI runs)
+- `bundle exec rake`: default task, runs specs and then RuboCop
 - `bundle exec rspec`: run the test suite
 - `bundle exec rspec spec/sum_service_spec.rb:15`: run a single example by file and line
 - `bundle exec rspec --only-failures`: rerun failures (status is kept in `.rspec_status`)
@@ -13,7 +17,7 @@ Rails Application Service is a Ruby gem adds service classes (e.g., use cases, f
 - `bin/console`: IRB with the gem loaded
 - `bundle exec rake install` / `bundle exec rake release`: install locally / tag, push and publish to RubyGems (bump `lib/application_service/version.rb` first)
 
-## Architecture
+### Architecture
 
 This is a tiny gem. All the behavior lives in `ApplicationService::Base` in `lib/application_service.rb`.
 
@@ -23,7 +27,7 @@ This is a tiny gem. All the behavior lives in `ApplicationService::Base` in `lib
 - **Abstract base:** creating a `Base` directly raises Ruby's built-in `NotImplementedError`, and so does a subclass that does not override `#call`. Note that this is a `ScriptError`, so a bare `rescue` or `rescue StandardError` will not catch it.
 - **Specs as subclasses:** specs define small concrete subclasses inline (for example, `SumService` in `spec/sum_service_spec.rb`) to exercise the base class.
 
-## Constraints
+### Constraints
 
 - **Old Ruby support:** the gemspec declares `required_ruby_version >= 2.2`, and RuboCop targets Ruby 2.2 (`TargetRubyVersion: 2.2`). Library code must avoid newer syntax and APIs. The dev Ruby in `.ruby-version` and the CI Ruby in `.github/workflows/main.yml` are much newer.
 - **Style:** use double-quoted strings and `# frozen_string_literal: true` in every Ruby file. RuboCop enforces both, with `NewCops: enable`.
@@ -34,5 +38,6 @@ This is a tiny gem. All the behavior lives in `ApplicationService::Base` in `lib
 
 - Don't add any new dependencies without asking first.
 - If the code changes, sync both `AGENTS.md` and `README.md` as well.
+- Run `bundle exec rspec` to check for errors before every commit.
 - Don't commit and push changes unless explicitly required.
 - This project only uses the `main` branch; commit and push directly to it.
