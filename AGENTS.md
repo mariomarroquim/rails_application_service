@@ -30,7 +30,8 @@ All the behavior lives in `ApplicationService::Base` in `lib/application_service
 
 ### Constraints
 
-- **Packaging:** gem contents come from `git ls-files` (except development files). Files under `lib/` must also be packed.
+- **Ruby version:** Ruby 4.0 or later is required (`required_ruby_version` in the gemspec, `TargetRubyVersion` in `.rubocop.yml`).
+- **Packaging:** the gem ships only git-tracked files, so commit new `lib/` files before releasing.
 - **Changes:** record user-facing changes in `CHANGELOG.md`. Type signatures live in `sig/application_service.rbs`.
 
 ## Conventions
