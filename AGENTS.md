@@ -27,6 +27,7 @@ All the behavior lives in `ApplicationService::Base` in `lib/application_service
 - **ActiveModel only:** `Base` includes `ActiveModel::Model`, so subclasses get keyword-argument initialization (`attr_accessor` attributes) and `validates`.
 - **Runtime dependencies:** The only runtime dependency is `activemodel >= 8.0`. The gem does not depend on Rails itself.
 - **The `call` contract:** the class method `Base.call(**)` forwards its keyword arguments to `new` to build an instance, returns `false` if `valid?` fails, and otherwise returns the result of the instance's `call`. The service instance (and its `errors`) is thrown away, so callers get only the return value or `false`.
+- **Abstract base:** instantiating `Base`, or calling a subclass without `#call`, raises `ApplicationService::NotImplementedError` (a `StandardError`).
 - **Specs as subclasses:** specs define small concrete subclasses inline to exercise the base class.
 
 ### Constraints

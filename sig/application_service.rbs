@@ -1,4 +1,16 @@
 module ApplicationService
   VERSION: String
-  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+  class NotImplementedError < StandardError
+  end
+
+  class Base
+    include ActiveModel::Model
+
+    def initialize: (**untyped attributes) -> void
+
+    def self.call: (**untyped attributes) -> untyped
+
+    def call: () -> untyped
+  end
 end

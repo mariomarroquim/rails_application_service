@@ -18,16 +18,16 @@ RSpec.describe SumService do
 
   it "fails if no number is given" do
     sum = SumService.call(number_a: 1, number_b: nil)
-    expect(sum).to be_falsey
+    expect(sum).to eq(false)
   end
 
   it "fails if zero is given" do
     sum = SumService.call(number_a: 1, number_b: 0)
-    expect(sum).to be_falsey
+    expect(sum).to eq(false)
   end
 
   it "fails if a negative number is given" do
     sum = SumService.call(number_a: 1, number_b: -2)
-    expect(sum).to be_falsey
+    expect(sum).to eq(false)
   end
 end

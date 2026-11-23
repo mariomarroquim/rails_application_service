@@ -56,6 +56,8 @@ end
 sum = Sum.call(number_a: 1, number_b: 2) # => 3
 ```
 
+`Sum.call` returns `false` when validation fails. A service that does not define `call` raises `ApplicationService::NotImplementedError`.
+
 ## Support
 
 You can contact me at mariomarroquim@gmail.com.

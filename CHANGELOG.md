@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Breaking Changes
 - Ruby 4.0 or later is now required (previously Ruby 2.2)
 - ActiveModel 8.0 or later is now required (previously ActiveModel 4.2)
+- Unimplemented services now raise `ApplicationService::NotImplementedError`, a `StandardError`, instead of Ruby's built-in `NotImplementedError`
 
 ## [0.6.2] - 2025-08-02
 
