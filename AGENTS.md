@@ -1,10 +1,8 @@
 # Rails Application Service
 
-Rails Application Service is a Ruby gem that adds service classes to Ruby on Rails web applications.
+Rails Application Service is a Ruby gem that adds service classes (e.g., use cases, features, or commands) to Ruby on Rails web applications.
 
 ## Project details
-
-This is a Ruby gem that adds service classes (e.g., use cases, features, or commands) to Ruby on Rails web applications.
 
 ### Commands
 
