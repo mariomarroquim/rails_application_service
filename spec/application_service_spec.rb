@@ -43,6 +43,11 @@ RSpec.describe ApplicationService do
         expect { service_class.new.call }
           .to raise_error(ApplicationService::NotImplementedError, /must be implemented/)
       end
+
+      it "names the anonymous class in the error message" do
+        expect { service_class.call }
+          .to raise_error(ApplicationService::NotImplementedError, /must be implemented in #<Class:0x\h+>/)
+      end
     end
 
     context "when a subclass receives an unknown attribute" do

@@ -61,7 +61,7 @@ module ApplicationService
     #
     # @raise [ApplicationService::NotImplementedError] if the method is not implemented in a child class.
     def call
-      raise NotImplementedError, "The `call` method must be implemented in #{self.class.name}"
+      raise NotImplementedError, "The `call` method must be implemented in #{self.class.name || self.class.inspect}"
     end
   end
 end
