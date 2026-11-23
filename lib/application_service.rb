@@ -38,11 +38,11 @@ module ApplicationService
     # @param kwargs [Hash] The attributes to be passed to the service object.
     # @raise [ApplicationService::NotImplementedError] if an attempt is made to instantiate the Base class directly.
     def initialize(**kwargs)
+      if instance_of?(Base)
+        raise NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
+      end
+
       super
-
-      return unless instance_of?(Base)
-
-      raise NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
     end
 
     # Instantiates a new service object and invokes its `call` method.

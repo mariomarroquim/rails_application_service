@@ -16,7 +16,6 @@ This is a Ruby gem that adds service classes (e.g., use cases, features, or comm
 - `bundle exec rspec --only-failures`: rerun failures (status is kept in `.rspec_status`).
 - `bundle exec rspec spec/sum_service_spec.rb:15`: run a single example by file and line.
 - `bundle exec rspec`: run the test suite.
-- `bundle exec rake spec:minimum`: run the test suite against the minimum supported ActiveModel (`gemfiles/activemodel_8_0.gemfile`).
 - `bundle exec rubocop` (`-a` to autocorrect): lint.
 
 ### Architecture
@@ -34,13 +33,12 @@ All the behavior lives in `ApplicationService::Base` in `lib/application_service
 
 - **Ruby version:** Ruby 4.0 or later is required (`required_ruby_version` in the gemspec, `TargetRubyVersion` in `.rubocop.yml`).
 - **Packaging:** the gem ships only git-tracked files, so commit new `lib/` files before releasing.
-- **Changes:** record user-facing changes in `CHANGELOG.md`. Type signatures live in `sig/application_service.rbs`.
+- **Changes:** record user-facing changes in `CHANGELOG.md`.
 
 ## Conventions
 
 - Don't add any new dependencies without asking first.
 - If the code changes, sync both `AGENTS.md` and `README.md` as well.
 - Run `bundle exec rspec` to check for errors before every commit.
-- Run `bundle exec rake spec:minimum` before every release.
 - Don't commit and push changes unless explicitly required.
 - This project only uses the `main` branch; commit and push to it when required.

@@ -17,6 +17,11 @@ RSpec.describe ApplicationService do
         .to raise_error(ApplicationService::NotImplementedError, /abstract class/)
     end
 
+    it "cannot be instantiated directly, even with attributes" do
+      expect { described_class.new(name: "any") }
+        .to raise_error(ApplicationService::NotImplementedError, /abstract class/)
+    end
+
     it "cannot be called directly" do
       expect { described_class.call }
         .to raise_error(ApplicationService::NotImplementedError, /abstract class/)
