@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/mariomarroquim/rails_application_service"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 4.0"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["changelog_uri"] = "https://github.com/mariomarroquim/rails_application_service/blob/main/CHANGELOG.md"
 

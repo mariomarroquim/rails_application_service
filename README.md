@@ -60,4 +60,4 @@ sum = Sum.call(number_a: 1, number_b: 2) # => 3
 
 ## Support
 
-You can contact me at mariomarroquim@gmail.com.
+You can contact me at [mariomarroquim@gmail.com](mailto:mariomarroquim@gmail.com).
