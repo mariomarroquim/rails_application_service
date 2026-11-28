@@ -1,5 +1,7 @@
 # Rails Application Service
 
+[![Gem Version](https://img.shields.io/gem/v/rails_application_service)](https://rubygems.org/gems/rails_application_service)
+
 This Ruby gem adds service classes (e.g., use cases, features, or commands) to Ruby on Rails web applications.
 
 ## Instructions
@@ -26,7 +28,8 @@ mkdir -p app/services
 
 ## Usage examples
 
-The `ApplicationService::Base` class provides a standard interface for calling services. It leverages `ActiveModel` for initialization with keyword arguments and input validation.
+The `ApplicationService::Base` class provides a standard interface for calling services.
+It leverages `ActiveModel` for initialization with keyword arguments and input validation.
 
 ### Basic service example
 
