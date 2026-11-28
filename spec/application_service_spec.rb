@@ -50,6 +50,40 @@ RSpec.describe ApplicationService do
       end
     end
 
+    it "is an abstract class" do
+      expect(described_class).to be_abstract_class
+    end
+
+    context "when a subclass is declared with abstract_class!" do
+      let(:abstract_class) { Class.new(described_class) { abstract_class! } }
+
+      it "is an abstract class" do
+        expect(abstract_class).to be_abstract_class
+      end
+
+      it "cannot be instantiated" do
+        expect { abstract_class.new }
+          .to raise_error(ApplicationService::NotImplementedError, /#<Class:0x\h+> is an abstract class/)
+      end
+
+      it "cannot be called" do
+        expect { abstract_class.call }
+          .to raise_error(ApplicationService::NotImplementedError, /abstract class/)
+      end
+
+      it "does not make its subclasses abstract" do
+        concrete_class = Class.new(abstract_class) { def call = :done }
+        expect(concrete_class).not_to be_abstract_class
+        expect(concrete_class.call).to eq(:done)
+      end
+    end
+
+    context "when a subclass is not declared abstract" do
+      it "is not an abstract class" do
+        expect(Class.new(described_class)).not_to be_abstract_class
+      end
+    end
+
     context "when a subclass receives an unknown attribute" do
       let(:service_class) do
         Class.new(described_class) do

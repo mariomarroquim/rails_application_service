@@ -61,6 +61,29 @@ sum = Sum.call(number_a: 1, number_b: 2) # => 3
 
 `Sum.call` returns `false` when validation fails. A service that does not define `call` raises `ApplicationService::NotImplementedError`.
 
+### Example with an abstract base service
+
+Like `self.abstract_class = true` in ActiveRecord, `abstract_class!` declares a base class for your services
+that cannot be instantiated or called itself. It is not inherited, so its subclasses stay concrete.
+
+```ruby
+class BaseService < ApplicationService::Base
+  abstract_class!
+
+  # Shared behavior for all services
+end
+
+class MyService < BaseService
+  def call
+    # Perform the service action
+  end
+end
+
+BaseService.abstract_class? # => true
+BaseService.call # raises ApplicationService::NotImplementedError
+MyService.call # nil
+```
+
 ## Support
 
 You can contact me at [mariomarroquim@gmail.com](mailto:mariomarroquim@gmail.com).

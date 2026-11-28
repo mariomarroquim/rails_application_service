@@ -5,6 +5,12 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- `abstract_class!` declares a service class as abstract, so it cannot be instantiated or called,
+  and `abstract_class?` tells whether a class was declared abstract
+
 ## [0.7.0] - 2026-11-23
 
 ### Changed

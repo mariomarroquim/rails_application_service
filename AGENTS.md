@@ -27,7 +27,10 @@ All the behavior lives in `ApplicationService::Base` in `lib/application_service
 - **The `call` contract:** the class method `Base.call(**)` forwards its keyword arguments to `new` to build an instance, returns `false` if `valid?` fails,
   and otherwise returns the result of the instance's `call`.
   The service instance (and its `errors`) is thrown away, so callers get only the return value or `false`.
-- **Abstract base:** instantiating `Base`, or calling a subclass without `#call`, raises `ApplicationService::NotImplementedError` (a `StandardError`).
+- **Abstract classes:** `Base` declares itself abstract with `abstract_class!`, and subclasses can do the same.
+  Like ActiveRecord's `abstract_class`, the flag is a class instance variable, so it is not inherited.
+  Instantiating an abstract class, or calling a subclass without `#call`,
+  raises `ApplicationService::NotImplementedError` (a `StandardError`).
 - **Specs as subclasses:** specs define small concrete subclasses inline to exercise the base class.
 
 ### Constraints

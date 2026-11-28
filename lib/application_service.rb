@@ -7,7 +7,7 @@ require "active_model"
 # Service objects encapsulate business logic and are typically used to
 # perform a single action or a series of related actions.
 module ApplicationService
-  # Raised when the abstract Base class is instantiated directly, or when a
+  # Raised when an abstract class (such as Base) is instantiated, or when a
   # subclass does not implement `call`. Unlike Ruby's built-in
   # NotImplementedError (a ScriptError), it is a StandardError, so a plain
   # `rescue` catches it.
@@ -30,16 +30,37 @@ module ApplicationService
   #   end
   #
   #   sum = Sum.call(number_a: 1, number_b: 2) # => 3
+  #
+  # Applications can declare their own abstract base with `abstract_class!`:
+  #
+  #   class BaseService < ApplicationService::Base
+  #     abstract_class!
+  #   end
   class Base
     include ::ActiveModel::Model
+
+    class << self
+      # Declares the class as abstract, so it cannot be instantiated or called.
+      # Like ActiveRecord's `abstract_class`, it is not inherited by subclasses.
+      def abstract_class!
+        @abstract_class = true
+      end
+
+      # @return [Boolean] Whether the class was declared abstract with `abstract_class!`.
+      def abstract_class?
+        @abstract_class == true
+      end
+    end
+
+    abstract_class!
 
     # Initializes a new instance of the service object.
     #
     # @param kwargs [Hash] The attributes to be passed to the service object.
-    # @raise [ApplicationService::NotImplementedError] if an attempt is made to instantiate the Base class directly.
+    # @raise [ApplicationService::NotImplementedError] if the class was declared abstract.
     def initialize(**kwargs)
-      if instance_of?(Base)
-        raise NotImplementedError, "#{self.class.name} is an abstract class and cannot be instantiated directly"
+      if self.class.abstract_class?
+        raise NotImplementedError, "#{self.class} is an abstract class and cannot be instantiated directly"
       end
 
       super
